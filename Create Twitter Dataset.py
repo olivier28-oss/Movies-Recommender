@@ -1,10 +1,11 @@
 # Install tweepy
 pip install tweepy
 
-Building a dataset from twitter
+# Building a dataset from twitter
 
 import tweepy
 
+# Twitter access keys
 consumerKey = 'tt3PcBcQiSSUIXtbSgqpHAwEA'
 consumerSecret = 'Y0x2RpZZlZNWtD2mNy3kSvICFypvcXyEiEKJf0yyb0IqQibJ4R'
 accessToken = '1399800359913021441-lOydEfLIrnOBK8cVQ2chgOdtgrCbee'
@@ -15,12 +16,14 @@ api = tweepy.API(twitter_auth)
 
 tweets = api.search('movies', count=200) # tweets relating to the term in ‘ ‘
 
-print(tweets)
+print(tweets) # all tweets printed related to search
 
 
 import re
 import pandas as pd
-from textblob import TextBlob
+from textblob import TextBlob # Used for sentiment analysis
+# TextBlob actively used Natural Language ToolKit (NLTK) to achieve its tasks.
+# NLTK is a library which gives an easy access to a lot of lexical resources and allows users to work with categorization, classification and many other tasks
 
 
 # Storing features from the tweets that will be useful for machine learning later 
@@ -52,7 +55,7 @@ for tweet in tweets:
                   'tweet_retweet_count': tweet.retweet_count,
                   'tweet_favourite_count': tweet.favorite_count}, ignore_index = True)
   
-df.head()
+df.head() # Display top 5 rows
 
 
 # Calculate tweet text length and the count of punctuation in the tweet text
@@ -68,7 +71,7 @@ def count_punc(text):
 
 df['tweet_text_punc_count'] = df['tweet_text'].apply(lambda x: count_punc(x))
 
-df.head()
+df.head() # Display top 5 rows
 
 
 
