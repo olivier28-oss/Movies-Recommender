@@ -1,5 +1,5 @@
 Context
-IMDB Dataset of top 1000 movies and tv shows.
+IMDB Dataset of top 1000 movies and tv shows as from 1920 to early 2020
 You can find the EDA Process on - https://www.kaggle.com/harshitshankhdhar/eda-on-imdb-movies-dataset
 
 Please consider UPVOTE if you found it useful.
@@ -20,6 +20,7 @@ Director - Name of the Director
 Star1,Star2,Star3,Star4 - Name of the Stars
 Noofvotes - Total number of votes
 Gross - Money earned by that movie
+
 Inspiration
 Analysis of the gross of a movie vs directors.
 Analysis of the gross of a movie vs different - different stars.
