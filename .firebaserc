@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "recommended-system": {
+      "hosting": {
+        "KiBonFilm": [
+          "recommended-system"
+        ]
+      }
+    }
+  }
+}

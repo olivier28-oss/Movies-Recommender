@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.jumbotron {
+  background-image: url("./assets/images/cinema.jpg");
+  background-size: 100%;
+  border-radius: 0px;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+.row{
+  margin-bottom: 50px;
+}
+
