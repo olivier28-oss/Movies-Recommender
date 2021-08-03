@@ -1,18 +1,21 @@
-.card {margin-bottom: 20px;}
-
-
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.card {
+	margin-bottom: 20px;
+}
+.loader {
+	border: 16px solid #f3f3f3;
+	border-top: 16px solid #3498db;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
 }
 
 
@@ -33,60 +36,48 @@
  *
  **/
 
-.acidjs-rating-stars,
-.acidjs-rating-stars label::before
-{
-  display: inline-block;
+ .acidjs-rating-stars {
+	display: inline-block;
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	label {
+		&::before {
+			display: inline-block;
+			content: "\2605";
+			width: 40px;
+			line-height: 40px;
+			text-align: center;
+			font-size: 35px;
+			cursor: pointer;
+		}
+		&:hover {
+			color: #189800;
+			~ {
+				label {
+					color: #189800;
+				}
+			}
+		}
+		color: #ccc;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	input {
+		display: none;
+		&:checked {
+			~ {
+				label {
+					color: #f5b301;
+				}
+			}
+		}
+	}
 }
-
-.acidjs-rating-stars label:hover,
-.acidjs-rating-stars label:hover ~ label
-{
-  color: #189800;
-}
-
-.acidjs-rating-stars *
-{
-  margin: 0;
-  padding: 0;
-}
-
-.acidjs-rating-stars input
-{
-  display: none;
-}
-
-.acidjs-rating-stars
-{
-  unicode-bidi: bidi-override;
-  direction: rtl;
-}
-
-.acidjs-rating-stars label
-{
-  color: #ccc;
-}
-
-.acidjs-rating-stars label::before
-{
-  content: "\2605";
-  width: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 35px;
-  cursor: pointer;
-}
-
-.acidjs-rating-stars input:checked ~ label
-{
-  color: #f5b301;
-}
-
-.acidjs-rating-disabled
-{
-  opacity: .50;
-
-  -webkit-pointer-events: none;
-  -moz-pointer-events: none;
-  pointer-events: none;
+.acidjs-rating-disabled {
+	opacity: .50;
+	-webkit-pointer-events: none;
+	-moz-pointer-events: none;
+	pointer-events: none;
 }

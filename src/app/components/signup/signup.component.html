@@ -10,15 +10,43 @@
     <h4>Create User:</h4>
     <div class="col-sm-12">
       <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputFname">First Name:</label>
+            <input type="text" [(ngModel)]="fName" name="fName" class="form-control" id="inputFname" placeholder="First Name" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLname">Last Name:</label>
+            <input type="text" [(ngModel)]="lName" name="lName" class="form-control" id="inputLname" placeholder="Last Name" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputDOB">Date of Birth</label>
+            <input type="date" [(ngModel)]="dob" name="dob" placeholder="yyyy-MM-dd" min="1970-01-01" max="2005-12-31" class="form-control" id="inputDOB" required>
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="email">Email address:</label>
-          <input type="email" #email class="form-control" placeholder="email" id="email">
+          <input type="email" [(ngModel)]="mail" #email name="email" class="form-control" placeholder="email" id="email" required>
         </div>
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" #password class="form-control" placeholder="password" id="pwd">
+          <input type="password" #password name="password" class="form-control" placeholder="password" id="pwd" required>
         </div>
-        <button routerLink="/" type="submit" (click)="signup(email.value, password.value)" class="btn btn-primary">Submit</button>
+
+        <!-- <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+          />
+          <label class="form-check-label" for="flexRadioDefault1"> Default radio </label>
+        </div> -->
+        <button routerLink="/" type="submit" (click)="register(email.value, password.value)" class="btn btn-primary">Submit</button> <!-- fName.value, lName.value, , dob.value -->
       </form>
 
     </div>
