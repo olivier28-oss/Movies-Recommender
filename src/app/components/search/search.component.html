@@ -2,10 +2,31 @@
 
 <div class="input-group">
   <div class="form-outline">
-    <input id="search-input" type="search" id="form1" class="form-control" />
-    <label class="form-label" for="form1">Search</label>
+    <label class="form-label" for="form1">Search for movies</label>
+    <input id="search-input" type="text" id="query" class="form-control" [(ngModel)]="query" (keyup.enter)="searchMovie(query)"/>
   </div>
-  <button id="search-button" type="button" class="btn btn-primary">
-    <i class="fas fa-search"></i>
+  <button id="search-button" type="button" class="btn btn-primary" (click)="searchMovie(query)">
+    Search
   </button>
 </div>
+<div class="col-sm-4" *ngFor="let movie of arrayMovies">
+<div class="card">
+  <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" alt="Card image" height="300px;">
+  <div class="card-body">
+    <h4 class="card-title">{{movie.title}}</h4>
+    <!-- <p class="card-text">To show description of movies</p>
+    <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Comment Movie</a> -->
+  </div>
+</div>
+</div>
+<!-- <div class="card movie_card" *ngFor="let movie of arrayMovies">
+  <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer">
+    </i>
+    <h5 class="card-title">{{movie.title}}</h5>
+       <!-- <span class="movie_info">2019</span> -->
+       <!-- <span class="movie_info float-right"><i class="fas fa-star"></i> 9 / 10</span> -->
+  <!-- </div>
+</div> -->
+

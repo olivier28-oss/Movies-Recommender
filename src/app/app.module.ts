@@ -20,6 +20,10 @@ import { LoginComponent } from './components/login/login.component';
 import { DatePipe } from '@angular/common';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SearchComponent } from './components/search/search.component';
+import { MyGuardGuard } from './my-guard.guard';
+import { SelectGenresComponent } from './components/select-genres/select-genres.component';
+import { GenresPipe } from './pipes/genres.pipe';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
 const appRoutes: Routes = [
  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -29,6 +33,8 @@ const appRoutes: Routes = [
  {path: 'dashboard', component: DasboardComponent},
  {path: 'login', component: LoginComponent},
  {path: 'signup', component: SignupComponent},
+ {path: 'genres', component: SelectGenresComponent},
+ {path: 'movie', component: MovieDetailsComponent},
  {path: 'list', component: ListComponent},
  {path: 'profile', component: ProfileComponent},
  {path: 'search', component: SearchComponent},
@@ -46,7 +52,10 @@ const appRoutes: Routes = [
     ListComponent,
     LoginComponent,
     WelcomeComponent,
-    SearchComponent
+    SearchComponent,
+    SelectGenresComponent,
+    GenresPipe,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

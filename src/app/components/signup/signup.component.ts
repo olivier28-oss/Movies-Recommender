@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class SignupComponent implements OnInit {
 
   configUrl = 'http://127.0.0.1:5000/createUser/';
-
+  public uid: string='';
   fName = null;
   lName = null;
   mail = null;
@@ -30,6 +30,9 @@ export class SignupComponent implements OnInit {
       if(value.user != null){
         console.log('Success!', value);
         this.createInternalUser(value.user.uid);
+        this.uid = value.user.uid;
+        console.log(this.uid);
+
       }
     }).catch(err => {
       console.log('Something went wrong:', err.message);
@@ -44,8 +47,8 @@ export class SignupComponent implements OnInit {
   }
 
 // /Jane/Ball/JaneBall@mail.com/1977-11-19/888   ,+ this.fName + '/' + this.lName + '/' + this.email + '/' + this.dob + '/'
-getcreateInternalUser(uid: string): Observable<any[]> {
-  return this.http.get<any[]>(this.configUrl + this.fName + '/' + this.lName + '/' + this.mail + '/' + this.dob + '/' + uid)
+getcreateInternalUser(uid: string): Observable<any> {
+  return this.http.get<any>(this.configUrl + this.fName + '/' + this.lName + '/' + this.mail + '/' + this.dob + '/' + uid)
 }
 
 

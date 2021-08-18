@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
+.container{
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
 a {
 	color: black;
-}
-
-.navbar-expand-sm .navbar-position{
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
-
 }
 
 .navbar-brand{
   padding-left: 15px;
   font-family: 'Gowun Batang', serif;
   font-size: xx-large;
+}
+
+.nav-item{
+  padding: 1px 20px;
+  font-size: large;
 }

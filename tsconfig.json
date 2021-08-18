@@ -20,7 +20,11 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "resolveJsonModule": true, //allows for importing, extracting types from .json files.
+    "esModuleInterop": true, // allows default imports from modules with no default export. Required since a .json file has no default output.
+    "allowSyntheticDefaultImports": true
+
   },
   "angularCompilerOptions": {
     "strictNullChecks": false,

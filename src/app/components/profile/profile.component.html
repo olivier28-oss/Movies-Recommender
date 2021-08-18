@@ -1,22 +1,21 @@
 <app-nav-bar></app-nav-bar>
 
-<div class="container emp-profile">
+<div class="container emp-profile" >
             <form method="post">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
+                    <div class="col">
+                            <div class="circle">
+                              <span class="initials">MS</span>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6">
                         <div class="profile-head">
                                     <h5>
-                                        Kshiti Ghelani
+                                       {{email}}
                                     </h5>
+                                    <!-- <h5>
+                                       {{user[2]}}
+                                    </h5> -->
                                     <h6>
                                         To calculate age and display
                                     </h6>
@@ -29,8 +28,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col">
                         <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <button class="btn btn-danger" (click)="signOut()">Sign Out</button>
                     </div>
                 </div>
                 <div class="row">

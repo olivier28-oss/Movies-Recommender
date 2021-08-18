@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +10,14 @@ import { Observable } from 'rxjs';
   styleUrls: ['./dasboard.component.scss']
 })
 export class DasboardComponent implements OnInit {
-  configUrl = 'http://127.0.0.1:5000/predictions/';
+  predictUrl = 'http://127.0.0.1:5000/predictions/';
   configGetUrl = 'http://127.0.0.1:5000/getUser/';
   rateUrl = 'http://127.0.0.1:5000/rateItem/';
   fetchedMovie: any[] = [];
   ratedValue = null;
 
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     setTimeout(() => this.getUser(this.authService.uid), 2000 );
@@ -31,7 +32,7 @@ export class DasboardComponent implements OnInit {
 
   getRecommendations(uid: any) {
     this.getRecommendationsResponse(uid).subscribe(
-      (response: any[]) => console.log(this.configUrl + uid, this.fetchedMovie = response),
+      (response: any[]) => console.log(this.predictUrl + uid, this.fetchedMovie = response),
       (error) => console.log(error)
     );
   }
@@ -48,11 +49,17 @@ getUsersResponse(uid: string): Observable<any[]> {
 }
 
 getRecommendationsResponse(uid: any): Observable<any[]> {
-  return this.http.get<any[]>(this.configUrl + uid)
+  return this.http.get<any[]>(this.predictUrl + uid)
 }
 
 getrateItem(movieName: any): Observable<any[]> {
   return this.http.get<any[]>(this.rateUrl + movieName + '/' + this.ratedValue + '/' + this.authService.uid)
+}
+
+displayMovie(item: any){
+let movies = item;
+this.router.navigate(['/movie'], {state: { movieInfo: movies}})
+return;
 }
 
 }

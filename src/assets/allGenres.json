@@ -1,0 +1,87 @@
+[
+  {
+    "idGenres": "1",
+    "genresName": "Action",
+    "isChecked": false
+  },
+  {
+    "idGenres": "2",
+    "genresName": "Adventure",
+    "isChecked": false
+  },
+  {
+    "idGenres": "3",
+    "genresName": "Animation",
+    "isChecked": false
+  },
+  {
+    "idGenres": "4",
+    "genresName": "Biography",
+    "isChecked": false
+  },
+  {
+    "idGenres": "5",
+    "genresName": "Comedy",
+    "isChecked": false
+  },
+  {
+    "idGenres": "6",
+    "genresName": "Crime",
+    "isChecked": false
+  },
+  {
+    "idGenres": "7",
+    "genresName": "Drama",
+    "isChecked": false
+  },
+  {
+    "idGenres": "8",
+    "genresName": "Fantasy",
+    "isChecked": false
+  },
+  {
+    "idGenres": "9",
+    "genresName": "History",
+    "isChecked": false
+  },
+  {
+    "idGenres": "10",
+    "genresName": "Horror",
+    "isChecked": false
+  },
+  {
+    "idGenres": "11",
+    "genresName": "Music",
+    "isChecked": false
+  },
+  {
+    "idGenres": "12",
+    "genresName": "Mystery",
+    "isChecked": false
+  },
+  {
+    "idGenres": "13",
+    "genresName": "Romance",
+    "isChecked": false
+  },
+  {
+    "idGenres": "14",
+    "genresName": "Sci-Fi",
+    "isChecked": false
+  },
+  {
+    "idGenres": "15",
+    "genresName": "Sport",
+    "isChecked": false
+  },
+  {
+    "idGenres": "16",
+    "genresName": "Thriller",
+    "isChecked": false
+  },
+  {
+    "idGenres": "17",
+    "genresName": "War",
+    "isChecked": false
+  }
+ ]

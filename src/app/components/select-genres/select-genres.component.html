@@ -1,0 +1,23 @@
+<app-nav-bar></app-nav-bar>
+
+<h2>Select your genres</h2>
+<div class="container">
+<!-- <div class="form-group"> -->
+<form>
+<div class="codes">
+<div class="form-control mb-4" *ngFor="let item of genres">
+  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+
+  <label>
+    <input type="checkbox" name="item.genresName" [(ngModel)]="item.isChecked">
+    <!-- [(ngModel)] to track checkbox state -->
+    {{item.genresName}}
+  </label>
+  <!-- <button class="card-body" [value]="item.genresName">{{item.genresName}}</button>  -->
+</div>
+<button routerLink="/" type="submit" class="btn btn-primary" (click)="changeSelection()">Confirm</button><!--(click)=""-->
+
+</div>
+</form>
+</div>
+<!-- </div> -->
