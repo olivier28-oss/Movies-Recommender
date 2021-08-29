@@ -11,7 +11,7 @@
 </div>
 <div class="col-sm-4" *ngFor="let movie of arrayMovies">
 <div class="card">
-  <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" alt="Card image" height="300px;">
+  <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" alt="{{movie.poster_path}}" height="300px;">
   <div class="card-body">
     <h4 class="card-title">{{movie.title}}</h4>
     <!-- <p class="card-text">To show description of movies</p>

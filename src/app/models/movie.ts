@@ -1,10 +1,15 @@
-export interface Movie {
-  Title: string;
-  Year: string;
-  imdbID: string;
-  Type: string;
-  Poster: string;
-  results?: object[];
+export class Movie {
+  idMovie: number = 0;
+  movieName: string = '';
+  releaseYear: number = 0;
+  runtime: number = 0;
+  genres: string = '';
+  actors: string = '';
+  directors: string = '';
+  poster: string = '';
+  ratings: number = 0;
+  voteCount: number = 0;
+  overview: string = '';
 }
 
 export interface MovieDetail {

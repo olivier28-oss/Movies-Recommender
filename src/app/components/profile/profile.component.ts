@@ -15,11 +15,24 @@ export class ProfileComponent implements OnInit {
 
   // const user = firebase.auth().currentUser;
   UserUrl = 'http://127.0.0.1:5000/getUserInfo/';
+  UserCommentUrl = 'http://127.0.0.1:5000/getUserComment/';
+  userCommentInfo: any[] = [];
+  firstName: string='';
+  lastName: string='';
   email: string='';
+  dateofBirth:string='';
+  age: any;
+  showAge: any;
+  initial: any;
 
-  constructor(public http: HttpClient, private authService: AuthService) { }
+
+  constructor(public http: HttpClient, private authService: AuthService) {
+    this.UserInformation();
+   }
 
   ngOnInit(): void {
+    // console.log(this.userInfo);
+
   }
 
   signOut() {
@@ -27,51 +40,48 @@ export class ProfileComponent implements OnInit {
     // this.navbar.isSignedIn = false
   }
 
+  UserInformation(){
+    this.UserInfo(this.authService.uid);
+    this.UserComment(this.authService.uid);
+  }
 
-  UserInfo(uid: any) {
+  UserInfo(uid:any) {
     this.getUserInfo(uid).subscribe(
       (response: any[]) => {
-        // this.getUserInfo(response)
-        this.email = response[2];
+
+        this.firstName = response[0],
+        this.lastName = response[1],
+        this.email = response[2],
+        this.dateofBirth = response[3]
+
+        this.initial = this.firstName.charAt(0).toUpperCase() + this.lastName.charAt(0).toUpperCase();
+        var date = new  Date (this.dateofBirth);
+        this.ageCalculator(date)
+
       },
-      (error) => console.log(error));
+      (error) => console.log(error))
     }
 
-    getUserInfo(uid: any): Observable<any[]> {
-      return this.http.get<any[]>(this.UserUrl + '\'' + uid + '\'')
+    getUserInfo(uid:any): Observable<any[]> {
+      return this.http.get<any[]>(this.UserUrl + uid)
     }
-// getuserInfo(){
-//   this.authService.
-//   const displayName = user.displayName;
-//   const email = user.email;
-//   const photoURL = user.photoURL;
-//   const emailVerified = user.emailVerified;
-// }
-  // Tentative to identified logged in users
-  // SetUserData(user) {
-  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-  //   const userData: User = {
-  //     uid: user.uid,
-  //     email: user.email,
-  //     displayName: user.displayName,
-  //     dob: user.dob
-  //   }
-  //   return userRef.set(userData, {
-  //     merge: true
-  //   })
-  // }
 
-//   if(user !== null) {
-//   // The user object has basic properties such as display name, email, etc.
-//   const displayName = user.displayName;
-//   const email = user.email;
-//   const photoURL = user.photoURL;
-//   const emailVerified = user.emailVerified;
 
-//   // The user's ID, unique to the Firebase project. Do NOT use
-//   // this value to authenticate with your backend server, if
-//   // you have one. Use User.getToken() instead.
-//   const uid = user.uid;
-// }
+    UserComment(uid:any) {
+      this.getUserComment(uid).subscribe(
+        (response: any[]) => console.log(this.userCommentInfo=response),
+        (error) => console.log(error))
+      }
 
+      getUserComment(uid:any): Observable<any[]> {
+        return this.http.get<any[]>(this.UserCommentUrl + uid)
+      }
+
+      ageCalculator(date: Date){
+
+          const convertAge = new Date(date);
+          const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+          this.showAge = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
+
+      }
 }

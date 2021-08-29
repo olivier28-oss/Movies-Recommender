@@ -13,7 +13,8 @@ import { environment } from 'src/environments/environment';
 })
 
 export class AuthService {
-  // user: Observable<firebase.User|null|undefined>;
+
+  user: Observable<firebase.User | null> | undefined;
   public uid: string = '';
   currentU = null as any; // assigning the default value to fixed null not assignable issue
   isLoggedIn = false;
@@ -30,24 +31,27 @@ export class AuthService {
     public firebaseAuth: AngularFireAuth,
     private http: HttpClient,
     private router: Router) {
-      // this.user = firebaseAuth.authState; // information of user will be stored here once logged in
-    firebase.initializeApp(environment.firebase);
-    // firebase.auth().onAuthStateChanged((user) => (this.currentU = user)); // added for user persistence
-    this.authStatusListener();
-    // this.randomFunction();
-  }
+      firebase.initializeApp(environment.firebase);
+      // firebase.auth().onAuthStateChanged((user) => (this.currentU = user)); // added for user persistence
+      this.authStatusListener();
+      // this.randomFunction();
+    }
 
+    // user$ = this.firebaseAuth.authState; // information of user will be stored here once logged in
   // client = firebase.auth().currentUser;
 
-  // currentUser ;
+  // initial
   public authStatusSub = new BehaviorSubject(this.currentUser);
   currentAuthStatus = this.authStatusSub.asObservable();
 
+//   currentAuthStatus = this.authStatusSub.asObservable();
 
+
+// initially
 authStatusListener(){
-  this.firebaseAuth.onAuthStateChanged((credential)=>{
+  this.firebaseAuth.onAuthStateChanged((credential) =>{
     if(credential){
-      console.log(credential);
+      // console.log(credential);
       this.authStatusSub.next(credential);
       console.log('User is logged in');
     }
@@ -114,5 +118,7 @@ authStatusListener(){
       this.router.navigate(['/']);
     });
   }
+
+
 
 }

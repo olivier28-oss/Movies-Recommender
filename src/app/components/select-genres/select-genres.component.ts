@@ -15,9 +15,11 @@ export class SelectGenresComponent implements OnInit {
   genresUrl = 'http://127.0.0.1:5000/selectGenres/';
   genres: any = [];
   selectedItemsList: any = [];
+  user: any;
 
   constructor(private http: HttpClient, private signUserGenre: SignupComponent, public authService: AuthService) {
     this.getGenres();
+    // this.user = this.authService.firebaseAuth.currentUser;
   }
 
   ngOnInit(): void { }
@@ -25,7 +27,7 @@ export class SelectGenresComponent implements OnInit {
   getGenres(){
     this.http.get('../../assets/allGenres.json').subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.genres = data;
       });
   }
@@ -39,7 +41,7 @@ export class SelectGenresComponent implements OnInit {
       // }
     });
     console.log(this.selectedItemsList);
-    console.log(this.authService.uid);
+    // console.log(this.authService.authStatusListener());
 
   }
 
@@ -57,7 +59,7 @@ export class SelectGenresComponent implements OnInit {
   }
 
   getselectGenres(genresName: any): Observable<any[]> {
-    return this.http.get<any[]>(this.genresUrl + genresName + '/' + this.authService.uid)
+    return this.http.get<any[]>(this.genresUrl + genresName + '/' + this.signUserGenre.uid)
   }
 
 }

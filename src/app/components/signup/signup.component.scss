@@ -1,6 +1,25 @@
 .container{
+  width: 500px;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
 	justify-content: center;
 	align-items: center;
+
+  .codes{
+    width: 450px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: center;
+
+.genreName{
+  margin: 5px;
+  padding: 5px;
+  border-style: groove;
+  border-radius: 8px;
+}}
+
 }

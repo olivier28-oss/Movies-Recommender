@@ -1,9 +1,58 @@
 <app-nav-bar></app-nav-bar>
 
+<div class="row">
+  <div class="col-lg-8">
+    <div class="tab-content profile-tab" id="myTabContent">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="recommender-tab"
+            data-toggle="tab"
+            href="#recommender"
+            role="tab"
+            aria-controls="recommender"
+            aria-selected="true"
+            >Recommended movies</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="genres-tab"
+            data-toggle="tab"
+            href="#genres"
+            role="tab"
+            aria-controls="genres"
+            aria-selected="false"
+            >Movies by genres</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="recent-tab"
+            data-toggle="tab"
+            href="#recent"
+            role="tab"
+            aria-controls="recent"
+            aria-selected="false"
+            >Recent movies</a
+          >
+        </li>
+      </ul>
+
+
+
+      <div
+        class="tab-pane fade show active"
+        id="recommender"
+        role="tabpanel"
+        aria-labelledby="recommender-tab"
+      >
+
+
 <div class="container">
-  <div class="row">
-    <h3>Recommended Movies</h3>
-  </div>
   <div class="row">
     <div *ngIf="!fetchedMovie">
       <div class="loadme">
@@ -11,13 +60,14 @@
         <div class="loader"></div>
       </div>
     </div>
-    <div class="col-sm-4" *ngFor="let person of fetchedMovie; let i = index">
+
+    <div class="col-sm-6" *ngFor="let movie of fetchedMovie; let i = index">
       <div class="card">
-        <img class="card-img-top" src="../../assets/images/cinema.jpg" alt="Card image" height="100px;" (click)="displayMovie(person[0])">
+        <img class="card-img-top" src="../../assets/images/cinema.jpg" alt="Card image" height="100px;" (click)="displayMovie(movie[0])">
         <div class="card-body">
-          <h4 class="card-title">{{person[0]}}</h4>
+          <h4 class="card-title">{{movie[0]}}</h4>
           <p class="card-text">To show description of movies</p>
-          <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Comment Movie</a>
+          <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Write a review</a>
         </div>
       </div>
       <!-- The Modal -->
@@ -27,20 +77,14 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">{{person[0]}}</h4>
+              <h4 class="modal-title">{{movie[0]}}</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-              <div class="acidjs-rating-stars">
-              <input [(ngModel)]="ratedValue" type="radio" name="group-1" id="group-1-1" value="4"><label for="group-1-1"></label>
-              <input [(ngModel)]="ratedValue" type="radio" name="group-1" id="group-1-2" value="3"><label for="group-1-2"></label>
-              <input [(ngModel)]="ratedValue" type="radio" name="group-1" id="group-1-3" value="2"><label for="group-1-3"></label>
-              <input [(ngModel)]="ratedValue" type="radio" name="group-1" id="group-1-4" value="1"><label for="group-1-4"></label>
-              </div>
-              <textarea class="form-control" id="Textarea" rows="2"></textarea>
-              <button type="button" (click)="this.rateItem(this.person[0])" class="btn btn-primary" data-dismiss="modal">Rate</button>
+              <textarea class="form-control" [(ngModel)]="commentValue" id="Textarea" rows="4" cols="50" placeholder="Insert a comment..."></textarea>
+              <button type="button" (click)="this.commentItem(this.movie[0])" class="btn btn-primary" data-dismiss="modal">Post Review</button>
             </div>
 
             <!-- Modal footer -->
@@ -55,6 +99,88 @@
       </div>
     </div>
   </div>
+  </div>
 </div>
 
 
+
+
+      <div
+        class="tab-pane fade"
+        id="genres"
+        role="tabpanel"
+        aria-labelledby="genres-tab"
+      >
+         <div class="row">
+                                        <div class="col-md-6">
+                                            <label>movies by genres</label>
+                                        </div>
+                                        vncg
+                                        </div>
+                                       <!-- <div class="col-md-6">
+                                            <p>Expert</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Hourly Rate</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>10$/hr</p>
+                                        </div>
+                                     -->
+      </div>
+      <div
+        class="tab-pane fade show active"
+        id="recent"
+        role="tabpanel"
+        aria-labelledby="recent-tab"
+      >
+      <div class="col-sm-6" *ngFor="let m of recentMoviesArray; let i = index">
+        <div class="card">
+          <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{m[7]}}" alt="{{m[1]}}" height="300px;"><!--(click)="displayMovie(movie[0])"-->
+          <div class="card-body">
+            <h4 class="card-title">{{m[1]}}</h4>
+            <!-- <p class="card-text">{{m[10]}}</p> -->
+            <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Write a review</a>
+          </div>
+        </div>
+        <!-- The Modal -->
+        <div class="modal" id="{{i}}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">{{m[1]}}</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <textarea class="form-control"  id="Textarea" rows="4" cols="50" placeholder="Insert a comment..."></textarea><!--[(ngModel)]="commentValue"-->
+                <button type="button"  class="btn btn-primary" data-dismiss="modal">Post Review</button><!--(click)="this.commentItem(this.movie[0])"-->
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="container">
+  <h3>Recommended Movies</h3>
+</div> -->

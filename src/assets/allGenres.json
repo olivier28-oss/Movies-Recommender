@@ -16,22 +16,22 @@
   },
   {
     "idGenres": "4",
-    "genresName": "Biography",
-    "isChecked": false
-  },
-  {
-    "idGenres": "5",
     "genresName": "Comedy",
     "isChecked": false
   },
   {
-    "idGenres": "6",
+    "idGenres": "5",
     "genresName": "Crime",
     "isChecked": false
   },
   {
-    "idGenres": "7",
+    "idGenres": "6",
     "genresName": "Drama",
+    "isChecked": false
+  },
+  {
+    "idGenres": "7",
+    "genresName": "Family",
     "isChecked": false
   },
   {
@@ -66,22 +66,22 @@
   },
   {
     "idGenres": "14",
-    "genresName": "Sci-Fi",
+    "genresName": "ScienceFiction",
     "isChecked": false
   },
   {
     "idGenres": "15",
-    "genresName": "Sport",
-    "isChecked": false
-  },
-  {
-    "idGenres": "16",
     "genresName": "Thriller",
     "isChecked": false
   },
   {
-    "idGenres": "17",
+    "idGenres": "16",
     "genresName": "War",
+    "isChecked": false
+  },
+  {
+    "idGenres": "17",
+    "genresName": "Western",
     "isChecked": false
   }
  ]

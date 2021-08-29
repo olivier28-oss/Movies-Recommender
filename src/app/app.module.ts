@@ -24,6 +24,7 @@ import { MyGuardGuard } from './my-guard.guard';
 import { SelectGenresComponent } from './components/select-genres/select-genres.component';
 import { GenresPipe } from './pipes/genres.pipe';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 const appRoutes: Routes = [
  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
     SearchComponent,
     SelectGenresComponent,
     GenresPipe,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,

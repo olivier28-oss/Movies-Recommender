@@ -13,7 +13,9 @@ export class MovieDetailsComponent implements OnInit {
 
   movieUrl = 'http://127.0.0.1:5000/predictMovies/';
   movieDetailsUrl = 'http://127.0.0.1:5000/movieInfo/';
+  movieCommentsUrl = 'http://127.0.0.1:5000/getmovieComment/';
   mov: any[] = [];
+  movieComments: any[] = [];
   details: any[] = [];
 
   constructor(private http: HttpClient, private router: Router) {
@@ -35,9 +37,20 @@ export class MovieDetailsComponent implements OnInit {
 
   predictMovies(movieDetails: any){
     this.getMovie(movieDetails).subscribe(
-      (response: any[]) => console.log(this.movieUrl + movieDetails, this.mov = response),
+      (response: any[]) => {
+        console.log(this.movieUrl + movieDetails, this.mov = response)
+        // this.movieComments=this.moviesComments(response[0])
+      },
       (error) => console.log(error));
     }
+
+
+  moviesComments(movieName: any){
+    this.getMovieComments(movieName).subscribe(
+      (response: any[]) => console.log(response),
+       (error) => console.log(error));
+
+  }
 
     movieInfo(details: any){
     this.getMovieDetails(details).subscribe(
@@ -52,6 +65,10 @@ export class MovieDetailsComponent implements OnInit {
   getMovieDetails(movieName: any): Observable<any[]> {
     return this.http.get<any[]>(this.movieDetailsUrl + movieName)
     }
+
+    getMovieComments(movieName: any): Observable<any[]> {
+      return this.http.get<any[]>(this.movieCommentsUrl + movieName)
+      }
 
   chooseMovie(item: any){
     let movies = item;
