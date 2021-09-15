@@ -12,9 +12,10 @@ import { Observable } from 'rxjs';
 export class MovieDetailsComponent implements OnInit {
 
   movieUrl = 'http://127.0.0.1:5000/predictMovies/';
-  movieDetailsUrl = 'http://127.0.0.1:5000/movieInfo/';
+  movieDetailsUrl = 'http://127.0.0.1:5000/getMovieDetails/';
   movieCommentsUrl = 'http://127.0.0.1:5000/getmovieComment/';
-  mov: any[] = [];
+
+  relatedMovies: any[] = [];
   movieComments: any[] = [];
   details: any[] = [];
 
@@ -30,16 +31,16 @@ export class MovieDetailsComponent implements OnInit {
       }
     }
 
+  }
 
+  ngOnInit(): void {
    }
-
-  ngOnInit(): void { }
 
   predictMovies(movieDetails: any){
     this.getMovie(movieDetails).subscribe(
       (response: any[]) => {
-        console.log(this.movieUrl + movieDetails, this.mov = response)
-        // this.movieComments=this.moviesComments(response[0])
+        console.log(this.movieUrl + movieDetails, this.relatedMovies = response)
+        this.movieInfo(movieDetails)
       },
       (error) => console.log(error));
     }
@@ -52,11 +53,12 @@ export class MovieDetailsComponent implements OnInit {
 
   }
 
-    movieInfo(details: any){
-    this.getMovieDetails(details).subscribe(
-     (response: any[]) => console.log(this.movieUrl + details, this.details = response),
+    movieInfo(mname: any){
+    this.getMovieDetails(mname).subscribe(
+     (response: any[]) => console.log(this.details = response),
       (error) => console.log(error));
     }
+
 
   getMovie(movieName: any): Observable<any[]> {
     return this.http.get<any[]>(this.movieUrl + movieName)
@@ -71,8 +73,8 @@ export class MovieDetailsComponent implements OnInit {
       }
 
   chooseMovie(item: any){
-    let movies = item;
-    this.router.navigate(['/movie'], {state: { movieInfo: movies}})
+    console.log("Learn more clicked");
+    this.router.navigate(['/movie'], {state: { movieInfo: item}})
     return;
     }
 

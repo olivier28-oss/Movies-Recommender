@@ -37,12 +37,12 @@ ul {
   margin-right: auto;
   margin-left: auto;
   overflow: hidden;
-  width: remy(600px);
-  height: remy(340px);
-  background: url(http://media.comicbook.com/2016/05/captain-america-civil-war-02082016-182755.png), rgb(10,10,10);
-  background-position: -60px 42px, 0;
+  width: remy(850px);
+  height: remy(500px);
+  background: rgb(10,10,10);
+  background-position: -40px 50px, 0;
   background-repeat: no-repeat;
-  background-size: 70% 88%;
+  background-size: 55% 88%;
   border-radius: $radius;
   box-shadow: $boxshadow-2;
 
@@ -59,7 +59,7 @@ ul {
 
 .card__inner {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   height: 100%;
 }
 
@@ -90,7 +90,7 @@ ul {
     display: block;
     padding-top: .85rem;
     padding-bottom: .85rem;
-    font-size: .75rem;
+    font-size: .85rem;
     font-weight: 600;
     letter-spacing: remy(2px);
     text-align: center;
@@ -101,9 +101,9 @@ ul {
 }
 
 .card__body {
-  position: absolute;
+  position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  // transform: translateY(-50%);
 }
 
 .card__info,
@@ -112,67 +112,88 @@ ul {
 }
 
 .card__info {
-  position: relative;
+  // position: relative;
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+  height: 30px;
+  width: 20px;
   padding-right: 1.25rem;
   float: right;
   width: 50%;
 }
 
 .card__title {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+
+  margin-right: 50px;
+  font-size: 1.7rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .card__slug {
-  margin-bottom: 1.25rem;
+  height: 100px;
+  width: 350px;
+  // margin-bottom: 1.25rem;
+  margin-top: 20px;
   color: rgba(255,255,255,.95);
 }
 
-.card__btn {
-  display: inline-block;
-  padding: .65rem 1.5rem;
-  font-size: .8rem;
-  font-weight: 600;
-  letter-spacing: remy(1px);
-  text-transform: uppercase;
-  color: #fff;
-  background: $color-primary;
-  border: 0;
-  border-radius: remy(35px);
-  box-shadow: $boxshadow-2;
-
-  @include transition;
-
-  &:focus,
-  &:hover {
-    color: #fff;
-    background: lighten($color-primary, 13%);
-    box-shadow: $boxshadow-3;
-  }
+.card_title_rating{
+  margin-top: 150px;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch
 }
+// .card__btn {
+//   display: inline-block;
+//   padding: .65rem 1.5rem;
+//   font-size: .8rem;
+//   font-weight: 600;
+//   letter-spacing: remy(1px);
+//   text-transform: uppercase;
+//   color: #fff;
+//   background: $color-primary;
+//   border: 0;
+//   border-radius: remy(35px);
+//   box-shadow: $boxshadow-2;
 
-.card__rating {
-  display: inline-block;
-  position: relative;
-  padding: 1rem;
-  margin-left: 3rem;
-  color: #fff;
-  border-radius: 50%;
-  border: 3px solid $color-primary;
+//   @include transition;
 
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: -5px;
-    left:0;
-    width: 50%;
-    height: 20px;
-    background: #000;
-  }
-}
+//   &:focus,
+//   &:hover {
+//     color: #fff;
+//     background: lighten($color-primary, 13%);
+//     box-shadow: $boxshadow-3;
+//   }
+// }
+
+// .card__rating {
+//   display: inline-block;
+//   position: relative;
+//   padding: 1rem;
+//   margin-left: 3rem;
+//   color: #fff;
+//   border-radius: 50%;
+//   border: 3px solid $color-primary;
+
+//   &:before {
+//     content: "";
+//     position: absolute;
+//     z-index: 2;
+//     top: -5px;
+//     left:0;
+//     width: 50%;
+//     height: 20px;
+//     // background: #000;
+//   }
+// }
 
 footer {
   position: absolute;
@@ -190,7 +211,7 @@ footer {
   width: 50%;
 
   li {
-    font-size: .85rem;
+    font-size: 1rem;
   }
 
   li:nth-of-type(n+2) {
@@ -198,7 +219,44 @@ footer {
   }
 }
 
-textarea {
-  resize: none;
-  margin-bottom: 1rem;
+.container{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+  margin-top: 30px;
+}
+
+.row{
+  margin-top: 2rem;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	align-content: center;
+}
+
+// .colsm{
+//   margin: 60px;
+//   display: flex;
+// 	flex-direction: row;
+// 	flex-wrap: wrap;
+// 	justify-content: space-around;
+// 	align-items: flex-start;
+// 	align-content: center;
+// }
+
+
+.card{
+  height: 300px;
+  margin-bottom: 15px;
+  // width: 300px;
+}
+
+.card-img-top{
+  height: 200px;
+  // width: 100px;
 }

@@ -65,7 +65,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'}),
     AngularFireModule.initializeApp(environment.firebase, 'recommended-system'),
     AngularFirestoreModule,
     AngularFireAuthModule

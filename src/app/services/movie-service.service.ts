@@ -22,7 +22,7 @@ export class MovieServiceService {
 
   constructor(private http: HttpClient) {
     this.movies = [];
-    this.recentMovies();
+    this.recentMovies(); // if recent movies section appeared forst, to use set Timer
   }
 
   addMovies(movie: Movie){

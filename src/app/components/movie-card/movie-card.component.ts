@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-movie-card',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MovieCardComponent implements OnInit {
 
-  @Input() person;
+  @Input() movie: Movie = new Movie;
 
   rateUrl = 'http://127.0.0.1:5000/rateItem/';
   ratedValue = null;
@@ -36,5 +37,7 @@ export class MovieCardComponent implements OnInit {
     this.router.navigate(['/movie'], {state: { movieInfo: movies}})
     return;
     }
+
+
 
 }

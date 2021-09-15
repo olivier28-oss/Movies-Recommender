@@ -25,6 +25,7 @@ export class SignupComponent implements OnInit {
 
   constructor(public authService: AuthService, private http: HttpClient) {
     // this.uid = this.authService.currentUser
+    // this.createInternalUser(this.authService.currentUser);
     this.getGenres();
    }
 
@@ -37,10 +38,14 @@ export class SignupComponent implements OnInit {
         this.createInternalUser(value.user.uid);
         console.log('Success!', value);
         this.uid=value.user.uid;
-        this.selectedItemsList.forEach((genre) => {
+        setTimeout(() => this.selectedItemsList.forEach((genre) => {
           this.selectGenres(genre.genresName, `${this.uid}`)
 
-        });
+        }), 1000);
+        // this.selectedItemsList.forEach((genre) => {
+        //   this.selectGenres(genre.genresName, `${this.uid}`)
+
+        // });
         console.log(value.user.uid);
       }
     }).catch(err => {

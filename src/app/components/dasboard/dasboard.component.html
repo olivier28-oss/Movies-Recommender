@@ -52,7 +52,8 @@
       >
 
 
-<div class="container">
+
+ <div class="container">
   <div class="row">
     <div *ngIf="!fetchedMovie">
       <div class="loadme">
@@ -60,35 +61,38 @@
         <div class="loader"></div>
       </div>
     </div>
-
-    <div class="col-sm-6" *ngFor="let movie of fetchedMovie; let i = index">
+    <!-- <div class="row"> -->
+    <div class="col-sm-6" *ngFor="let m of fetchedMovie; let i = index">
       <div class="card">
-        <img class="card-img-top" src="../../assets/images/cinema.jpg" alt="Card image" height="100px;" (click)="displayMovie(movie[0])">
+        <img class="card-img-top" src="{{m[1]}}" alt="{{m[0]}}">
         <div class="card-body">
-          <h4 class="card-title">{{movie[0]}}</h4>
-          <p class="card-text">To show description of movies</p>
-          <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Write a review</a>
+          <h4 class="card-title">{{m[0]}}</h4>
+          <!-- <p class="card-text">To show description of movies</p> -->
+           <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Write a review</a>
+           <a (click)="displayMovie(m[0])" class="btn btn-primary">
+            Learn More
+          </a>
         </div>
       </div>
       <!-- The Modal -->
-      <div class="modal" id="{{i}}">
+       <div class="modal" id="{{i}}">
         <div class="modal-dialog">
           <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">{{movie[0]}}</h4>
+              <h4 class="modal-title">{{m[0]}}</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
               <textarea class="form-control" [(ngModel)]="commentValue" id="Textarea" rows="4" cols="50" placeholder="Insert a comment..."></textarea>
-              <button type="button" (click)="this.commentItem(this.movie[0])" class="btn btn-primary" data-dismiss="modal">Post Review</button>
+              <button type="button" (click)="this.commentItem(this.m[0])" class="btn btn-primary" data-dismiss="modal">Post Review</button>
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer">
+             <div class="modal-footer">
 
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
@@ -98,11 +102,10 @@
         </div>
       </div>
     </div>
+  <!-- </div> -->
   </div>
   </div>
 </div>
-
-
 
 
       <div
@@ -112,58 +115,62 @@
         aria-labelledby="genres-tab"
       >
          <div class="row">
-                                        <div class="col-md-6">
-                                            <label>movies by genres</label>
-                                        </div>
-                                        vncg
-                                        </div>
-                                       <!-- <div class="col-md-6">
-                                            <p>Expert</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Hourly Rate</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>10$/hr</p>
-                                        </div>
-                                     -->
+          <!-- <div class="container-genres"> -->
+
+			<!-- <div class="container horizontal-scrollable"> -->
+				<div class="row text-center">
+          <div *ngFor="let genre of genresNameArray">
+          <!-- {{genre}} *ngFor="let genre of genresNameArray"-->
+          <div class="col-xs-4">{{genre}}</div>
+        </div>
+				</div>
+			<!-- </div> -->
+          <!-- </div> -->
+        </div>
       </div>
+
       <div
         class="tab-pane fade show active"
         id="recent"
         role="tabpanel"
         aria-labelledby="recent-tab"
       >
-      <div class="col-sm-6" *ngFor="let m of recentMoviesArray; let i = index">
+      <div class="row">
+<app-movie-card
+*ngFor="let movie of movies$; let i = index"
+[movie]="movie"
+class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+</app-movie-card>
+</div>
+        <div class="col-sm-6" *ngFor="let m of recentMoviesArray; let i = index">
         <div class="card">
           <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{m[7]}}" alt="{{m[1]}}" height="300px;"><!--(click)="displayMovie(movie[0])"-->
-          <div class="card-body">
+           <div class="card-body">
             <h4 class="card-title">{{m[1]}}</h4>
-            <!-- <p class="card-text">{{m[10]}}</p> -->
-            <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Write a review</a>
-          </div>
+            <p class="card-text">{{m[10]}}</p> -->
+             <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Write a review</a>
+           </div>
         </div>
         <!-- The Modal -->
-        <div class="modal" id="{{i}}">
+          <div class="modal" id="{{i}}">
           <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content"> -->
 
               <!-- Modal Header -->
-              <div class="modal-header">
+               <div class="modal-header">
                 <h4 class="modal-title">{{m[1]}}</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
 
               <!-- Modal body -->
-              <div class="modal-body">
+               <div class="modal-body">
                 <textarea class="form-control"  id="Textarea" rows="4" cols="50" placeholder="Insert a comment..."></textarea><!--[(ngModel)]="commentValue"-->
-                <button type="button"  class="btn btn-primary" data-dismiss="modal">Post Review</button><!--(click)="this.commentItem(this.movie[0])"-->
-              </div>
+                  <button type="button"  class="btn btn-primary" data-dismiss="modal">Post Review</button><!--(click)="this.commentItem(this.movie[0])"-->
+                </div>
 
               <!-- Modal footer -->
-              <div class="modal-footer">
+                <div class="modal-footer">
 
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
@@ -174,7 +181,7 @@
         </div>
       </div>
     </div>
-    </div>
+
   </div>
 </div>
 

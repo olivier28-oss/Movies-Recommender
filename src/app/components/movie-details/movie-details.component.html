@@ -1,76 +1,138 @@
 <app-nav-bar></app-nav-bar>
 
-<div class="movie-card">
+<div class="" *ngFor="let detail of details">
+   <div class="movie-card" style="background-image: url({{detail[5]}});">
   <div class="card__inner">
+    <div>
     <header class="card__header">
       <nav class="card__nav">
         <ul class="list list--nav">
           <li><a href="#">Movie</a></li>
-          <!-- <li><a href="#">Trivia</a></li> -->
-          <li><a href="#">Reviews</a></li>
+           <li><a href="#">Reviews</a></li>
         </ul>
-      </nav>
+
+         <div
+        class="tab-pane fade show active"
+        id="recommender"
+        role="tabpanel"
+        aria-labelledby="recommender-tab"
+      >
+      </div>
+       </nav>
     </header>
 
-    <main class="card__body">
+     <div class="card__body">
 
       <div class="card__info">
-        <h1 class="card__title">Captain America: Civil War</h1>
+        <div class="card_title_rating">
+          <div class="card__title"></div><!--{{detail[1]}}-->
 
-        <!-- <p class="card__slug">Political interference in the Avengers' activities causes a rift between former allies Captain America and Iron Man.</p> -->
-
-        <button class="card__btn" value="Watch trailer">Watch trailer</button>
-
-        <div class="card__rating">
-          8.2
+           <div class="card__rating">Rating: {{detail[6]}} / 10</div>
         </div>
-      </div>
-    </main>
 
-    <footer class="card__footer">
+          <div class="card__slug">{{detail[7]}}</div>
+      </div>
+    </div>
+
+     <footer class="card__footer">
       <ul class="list list--info">
-        <li>2016</li>
-        <li>122 min</li>
-        <li>Action | Sci-Fi</li>
+        <li>{{detail[0]}}</li>
+        <li>{{detail[1]}} min</li>
+        <li>{{detail[2]}}</li>
       </ul>
     </footer>
   </div>
+
+  </div>
+<!-- </div> -->
 </div>
-
-
+<!--*
 <div class="container">
-  <div class="row">
+  <div class="rowMorelike">
     <h3>More like this</h3>
   </div>
   <div class="row">
-  <div class="col-sm-4" *ngFor="let m of mov; let i = index">
-    <div class="card" >
-      <img class="card-img-top" src="../../assets/images/theater.jpg" alt="Card image" height="100px;" (click)="chooseMovie(m)">
+  <div class="colsm" > <!--*ngFor="let m of mov; let i = index"-->
+    <!-- <div class="card" >
+      <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/rS97hUJ1otKTTripGwQ0ujbuIri.jpg" alt="Card image" height="400px;" width="200px">
       <div class="card-body">
-        <h4 class="card-title">{{m}}</h4>
-        <p class="card-text">To show description of movies</p>
+        <h4 class="card-title">Ant-Man</h4> -->
+        <!-- <p class="card-text">To show description of movies</p> -->
+        <!-- <a href="" data-toggle="modal" class="btn btn-primary">Write a review</a>
+      </div>
+    </div> -->
+
+
+    <!-- <div class="card" >
+      <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg" alt="Card image" height="400px;" width="200px">
+      <div class="card-body">
+        <h4 class="card-title">Star Wars: The Force Awakens</h4> -->
+        <!-- <p class="card-text">To show description of movies</p> -->
+        <!-- <a href="" data-toggle="modal" class="btn btn-primary">Write a review</a>
+      </div>
+    </div> -->
+
+    <!-- <div class="card" >
+      <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg" alt="Card image" height="400px;" width="200px">
+      <div class="card-body">
+        <h4 class="card-title">Star Wars: The Last Jedi</h4> -->
+        <!-- <p class="card-text">To show description of movies</p> -->
+        <!-- <a href="" data-toggle="modal" class="btn btn-primary">Write a review</a>
+      </div>
+    </div> -->
+
+
+    <!-- <div class="card" >
+      <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/pLBb0whOzVDtJvyD4DPeQyQNOqp.jpg" alt="Card image" height="400px;" width="200px">
+      <div class="card-body">
+        <h4 class="card-title">Transformers: Revenge of the Fallen</h4> -->
+        <!-- <p class="card-text">To show description of movies</p> -->
+        <!-- <a href="" data-toggle="modal" class="btn btn-primary">Write a review</a>
+      </div>
+    </div> -->
+
+  <!-- </div>
+  </div>
+  </div> -->
+
+
+
+
+ <div class="container">
+  <div class="row">
+    <h3>More like this</h3>
+  </div>
+  <!-- <div class="row"> -->
+  <div class="col-sm-6" *ngFor="let movie of relatedMovies; let i = index">
+    <div class="card" >
+      <img class="card-img-top" src="{{ movie[1] }}" alt="{{ movie[0] }}">
+      <div class="card-body">
+        <h4 class="card-title">{{ movie[0] }}</h4>
         <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Write a review</a>
+        <a (click)="chooseMovie(movie[0])" class="btn btn-primary">
+          Learn More
+        </a>
       </div>
     </div>
           <!-- The Modal -->
-          <div class="modal" id="{{i}}">
+           <div class="modal" id="{{i}}">
             <div class="modal-dialog">
               <div class="modal-content">
 
                 <!-- Modal Header -->
-                <div class="modal-header">
-                  <h4 class="modal-title">{{m}}</h4>
+                 <div class="modal-header">
+                  <h4 class="modal-title">{{ movie[0] }}</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                 <div class="modal-body">
                   <textarea class="form-control" id="Textarea" rows="4" cols="50" placeholder="Insert a comment..."></textarea> <!--[(ngModel)]="commentValue"-->
-                  <button type="button"  class="btn btn-primary" data-dismiss="modal">Post Review</button> <!--(click)="this.commentItem(this.m[0])"-->
-                </div>
+                   <button type="button"  class="btn btn-primary" data-dismiss="modal">Post Review</button> <!--(click)="this.commentItem(this.m[0])"-->
+                 </div>
 
                 <!-- Modal footer -->
-                <div class="modal-footer">
+                 <div class="modal-footer">
 
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
@@ -79,8 +141,9 @@
               </div>
             </div>
           </div>
-  </div>
-  </div>
+   </div>
+  <!-- </div> -->
   </div>
 
 
+  <!--  -->

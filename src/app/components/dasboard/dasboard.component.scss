@@ -5,6 +5,26 @@
 	align-items: center;
 }
 
+// .horizontal-scrollable > .row {
+//   overflow-x: auto;
+//   white-space: nowrap;
+// }
+
+// .horizontal-scrollable > .row > .col-xs-4 {
+//   display: inline-block;
+//   float: none;
+// }
+// .colsm{
+//   margin-top: 30px;
+//   display: flex;
+// 	flex-direction: row;
+// 	flex-wrap: nowrap;
+// 	justify-content: space-around;
+// 	align-items: center;
+// 	align-content: center;
+//   width: auto;
+// }
+
 textarea {
   resize: none;
   margin-bottom: 1rem;
@@ -16,12 +36,27 @@ ul {
 	align-items: center;
 }
 
+p{
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// .movie-card{
+
+// }
+
 .row{
   margin-top: 2rem;
   display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	align-content: center;
 }
+
 
 @keyframes spin {
 	0% {
@@ -31,9 +66,24 @@ ul {
 		transform: rotate(360deg);
 	}
 }
+
 .card {
-	margin-bottom: 20px;
+  margin-bottom: 15px;
+  height: 300px;
 }
+
+.card-img-top{
+  height: 200px;
+}
+
+.card-body{
+  height: 150px;
+}
+// .ssss{
+
+//   height: 3000px;
+// }
+
 .loader {
 	border: 16px solid #f3f3f3;
 	border-top: 16px solid #3498db;

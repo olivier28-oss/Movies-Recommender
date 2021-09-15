@@ -9,7 +9,7 @@
             <div class="form-group" [class.has-error]="firstNameControl.invalid && firstNameControl.touched" [class.has-success]="firstNameControl.valid">
               <label for="fNmae" class="control-label">First Name</label>
             <input type="text" [(ngModel)]="fName" name="fName" class="form-control" id="fName" #firstNameControl="ngModel" required>
-            <span class="help-block" *ngIf="firstNameControl.invalid && firstNameControl.touched">
+            <span class="help-block" *ngIf="firstNameControl.invalid && firstNameControl.touched" >
               First Name is required
             </span>
           </div>
@@ -18,8 +18,8 @@
           <div class="col">
             <div class="form-group" [class.has-error]="lastNameControl.invalid && lastNameControl.touched" [class.has-success]="firstNameControl.valid">
               <label for="lNmae" class="control-label">Last Name</label>
-              <input type="text" [(ngModel)]="lName" name="lName" class="form-control" id="lName" #lastNameControl="ngModel" required>
-            <span class="help-block" *ngIf="lastNameControl.invalid && lastNameControl.touched">
+              <input type="text" [(ngModel)]="lName" name="lName" class="form-control"  #lastNameControl="ngModel" required>
+            <span class="help-block" *ngIf="lastNameControl.invalid && lastNameControl.touched" id="Lname">
               Last Name is required
             </span>
           </div>
@@ -29,7 +29,8 @@
             <div class="col">
             <label for="inputDOB">Date of Birth</label>
             <input type="date" [(ngModel)]="dob" name="dob" min="1970-01-01" max="2005-12-31" class="form-control mb-4" id="inputDOB" required>
-            </div>
+            <!-- <div>Date of Birth is required</div> -->
+          </div>
 
         <!-- E-mail -->
         <div class="form-group">
@@ -37,12 +38,14 @@
           <input type="email" [(ngModel)]="mail" #email name="mail" class="form-control mb-4" id="mail" required>
           <!-- <span *ngIf="mail.errors.required">Email is required</span>
       <span *ngIf="mail.errors.email">Must be a valid email address</span> -->
+      <!-- <div class="inputTxt">Please provide an email</div> -->
     </div>
         <!-- Password -->
         <div class="form-group">
           <label >Password</label>
           <input type="password" #password name="password" class="form-control mb-4" id="pwd" minlength ="5" required>
-</div>
+          <!-- <div class="inputTxt">Password should be at least 6 characters</div> -->
+        </div>
 
         <!-- Register -->
   <p>Already a member?

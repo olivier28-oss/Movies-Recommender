@@ -1,12 +1,44 @@
-<!-- <div class="card">
-  <img class="card-img-top" src="../../assets/images/cinema.jpg" alt="Card image" height="100px;"> <!-- (click)="displayMovie(person[0])" -->
-  <!-- <div class="card-body">
-    <h4 class="card-title">{{person[0]}}</h4>
-    <p class="card-text">To show description of movies</p>
-    <a href="#{{i}}" data-toggle="modal" class="btn btn-primary">Comment Movie</a>
+ <div class="card">
+  <img class="card-img-top" [src]="movie[7]" [alt]="movie[1]"> <!-- (click)="displayMovie(person[0])"     -->
+   <div class="card-body">
+    <h4 class="card-title">{{ movie[1] }}</h4>
+    <!-- <p class="card-text">{{ movie[10] }}</p> -->
+    <a href="" data-toggle="modal" class="btn btn-primary">Comment Movie</a>
+    <a (click)="displayMovie(movie[1])" class="btn btn-primary">
+			Learn More
+		</a>
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal" id=""><!--{{i}}-->
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+         <div class="modal-header">
+          <h4 class="modal-title">{{ movie[1] }}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+         <div class="modal-body">
+          <textarea class="form-control"  id="Textarea" rows="4" cols="50" placeholder="Insert a comment..."></textarea><!--[(ngModel)]="commentValue"-->
+           <button type="button"  class="btn btn-primary" data-dismiss="modal">Post Review</button><!--(click)="this.commentItem(this.movie[0])"-->
+         </div>
+
+        <!-- Modal footer -->
+         <div class="modal-footer">
+
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
 
+<!--
 <div class="card">
 	<img
     [src]="movie.Poster | defaultImage"

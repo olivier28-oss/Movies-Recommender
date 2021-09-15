@@ -5,6 +5,13 @@
 	align-items: center;
 }
 
+p{
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -13,9 +20,12 @@
 		transform: rotate(360deg);
 	}
 }
+
 .card {
-	margin-bottom: 20px;
+  margin-bottom: 15px;
+  height: 500px;
 }
+
 .loader {
 	border: 16px solid #f3f3f3;
 	border-top: 16px solid #3498db;
